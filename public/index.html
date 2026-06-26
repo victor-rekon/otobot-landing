@@ -3,28 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Youngpro Delegation Control System</title>
+  <title>Youngpro — Delegation Control System</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/prototype.css">
 </head>
 <body>
 <main class="app">
 
-  <!-- SIDEBAR -->
   <aside class="side">
     <div class="brand">
       <div class="logo">Y</div>
-      <div><b>Youngpro</b><small>Delegation Control</small></div>
+      <div>
+        <b>Youngpro</b>
+        <small>Delegation Control</small>
+      </div>
     </div>
     <nav class="nav">
-      <a href="#dash" class="active">Delegation Dashboard</a>
+      <a href="#dash" class="active">Dashboard</a>
       <a href="#flow">Alur Delegasi</a>
       <a href="#create">Buat Task</a>
       <a href="#board">Task Board</a>
       <a href="#proof">Bukti Kerja</a>
-      <a href="#approve">Approval Supervisor</a>
+      <a href="#approve">Approval</a>
       <a href="#roles">Users &amp; Roles</a>
       <a href="#stock">Stok Pendukung</a>
       <a href="#production">Produksi</a>
@@ -33,20 +35,18 @@
     </nav>
     <div class="note">
       <b>Fokus prototype:</b>
-      Delegasi tugas, PIC, deadline, progress, bukti kerja, approval, dan kontrol owner.
-      Stok menjadi modul pendukung.
+      Delegasi tugas, PIC, deadline, bukti kerja, dan approval. Stok sebagai modul pendukung.
     </div>
   </aside>
 
-  <!-- MAIN -->
   <section class="main">
 
     <!-- Hero -->
     <header class="hero" id="dash">
       <div>
         <div class="eyebrow">SistemBeres Prototype</div>
-        <h1>Delegasi Tugas,<br>Bukti Kerja,<br>dan Approval.</h1>
-        <p>Prototype ini menunjukkan bagaimana kerjaan bisa dibagi dari owner ke staff, dipantau progress-nya, dibuktikan dengan foto/file, lalu di-approve sebelum dianggap selesai.</p>
+        <h1>Delegasi Tugas, Bukti Kerja,<br>dan Approval Operasional.</h1>
+        <p>Dari owner ke staff — setiap tugas punya PIC, deadline, progress, bukti foto, dan approval supervisor. Tidak ada kerjaan yang hilang di chat.</p>
         <div class="toolbar">
           <span class="btn">Owner View</span>
           <span class="btn gray">Manager View</span>
@@ -55,9 +55,9 @@
         </div>
       </div>
       <div class="panel">
-        <span>Core promise</span>
+        <span>Core Promise</span>
         <strong>Kerjaan tidak hilang di chat.</strong>
-        <p>Setiap tugas punya PIC, deadline, status, bukti, approval, dan riwayat aktivitas yang lengkap.</p>
+        <p>Setiap tugas punya PIC, deadline, status, bukti, approval, dan riwayat aktivitas yang lengkap dan bisa diaudit.</p>
       </div>
     </header>
 
@@ -66,7 +66,7 @@
       <div class="card">
         <span>Open Tasks</span>
         <h2>42</h2>
-        <p>17 production, 12 warehouse, 8 admin, 5 quality check</p>
+        <p>17 production, 12 warehouse, 8 admin, 5 QC</p>
       </div>
       <div class="card">
         <span>Waiting Proof</span>
@@ -88,7 +88,7 @@
     <!-- Flow -->
     <div class="section" id="flow">
       <div class="eyebrow">Main Workflow</div>
-      <h2>Alur utama yang harus ditunjukkan ke client</h2>
+      <h2>Alur utama yang ditunjukkan ke client</h2>
       <div class="flow">
         <div>Owner<br>Request</div>
         <div>Manager<br>Buat Task</div>
@@ -106,16 +106,16 @@
         <h2>Form delegasi tugas</h2>
         <table>
           <tbody>
-            <tr><td>Judul Tugas</td><td><b style="color:#fff">Siapkan bahan produksi Mop Batch PB-00012</b></td></tr>
-            <tr><td>Department</td><td>Produksi / Gudang</td></tr>
-            <tr><td>Assigned To</td><td>Staff Produksi A</td></tr>
-            <tr><td>Supervisor</td><td>Supervisor Produksi</td></tr>
-            <tr><td>Deadline</td><td>Hari ini, 16:00</td></tr>
-            <tr><td>Priority</td><td><span class="badge red">High</span></td></tr>
-            <tr><td>Proof Required</td><td>Foto bahan + jumlah aktual</td></tr>
+            <tr><td style="color:var(--t3);width:120px">Judul Tugas</td><td><b style="color:var(--t1)">Siapkan bahan produksi Mop Batch PB-00012</b></td></tr>
+            <tr><td style="color:var(--t3)">Department</td><td>Produksi / Gudang</td></tr>
+            <tr><td style="color:var(--t3)">Assigned To</td><td>Staff Produksi A</td></tr>
+            <tr><td style="color:var(--t3)">Supervisor</td><td>Supervisor Produksi</td></tr>
+            <tr><td style="color:var(--t3)">Deadline</td><td>Hari ini, 16:00</td></tr>
+            <tr><td style="color:var(--t3)">Priority</td><td><span class="badge red">High</span></td></tr>
+            <tr><td style="color:var(--t3)">Proof</td><td>Foto bahan + jumlah aktual</td></tr>
           </tbody>
         </table>
-        <div class="toolbar" style="margin-top:20px">
+        <div class="toolbar" style="margin-top:16px">
           <span class="btn">Assign Task</span>
           <span class="btn gray">Save Draft</span>
         </div>
@@ -126,13 +126,13 @@
         <div class="ticket">
           <b>TASK-00045 — Material Count Proof</b>
           <p class="muted">PIC: Staff Gudang B &nbsp;·&nbsp; Supervisor: Pak Rudi &nbsp;·&nbsp; Deadline: 14:30 &nbsp;·&nbsp; Batch: PB-00012</p>
-          <span class="badge amber" style="margin-top:10px">Proof Review</span>
+          <span class="badge amber" style="margin-top:8px;display:inline-flex">Proof Review</span>
         </div>
-        <table style="margin-top:16px">
+        <table style="margin-top:14px">
           <tbody>
-            <tr><td>Progress</td><td>80%</td></tr>
-            <tr><td>Last Update</td><td>Foto bahan sudah diupload, menunggu validasi jumlah</td></tr>
-            <tr><td>Blocker</td><td>Packaging box kurang 5 pcs</td></tr>
+            <tr><td style="color:var(--t3);width:100px">Progress</td><td>80%</td></tr>
+            <tr><td style="color:var(--t3)">Last Update</td><td>Foto bahan diupload, menunggu validasi jumlah</td></tr>
+            <tr><td style="color:var(--t3)">Blocker</td><td>Packaging box kurang 5 pcs</td></tr>
           </tbody>
         </table>
       </div>
@@ -145,47 +145,23 @@
       <div class="kanban">
         <div class="lane">
           <h3>Open</h3>
-          <div class="ticket">
-            <b>Check shortage SO-00033</b>
-            <p class="muted">Manager Gudang &nbsp;·&nbsp; Today 11:00</p>
-          </div>
-          <div class="ticket">
-            <b>Buat label produksi baru</b>
-            <p class="muted">Admin &nbsp;·&nbsp; Normal</p>
-          </div>
+          <div class="ticket"><b>Check shortage SO-00033</b><p class="muted">Manager Gudang · Today 11:00</p></div>
+          <div class="ticket"><b>Buat label produksi baru</b><p class="muted">Admin · Normal</p></div>
         </div>
         <div class="lane">
           <h3>In Progress</h3>
-          <div class="ticket">
-            <b>Prepare raw material PB-00012</b>
-            <p class="muted">Staff Produksi A &nbsp;·&nbsp; High</p>
-          </div>
-          <div class="ticket">
-            <b>Hitung barang jadi squeegee</b>
-            <p class="muted">Staff Gudang C</p>
-          </div>
+          <div class="ticket"><b>Prepare raw material PB-00012</b><p class="muted">Staff Produksi A · High</p></div>
+          <div class="ticket"><b>Hitung barang jadi squeegee</b><p class="muted">Staff Gudang C</p></div>
         </div>
         <div class="lane">
           <h3>Proof Review</h3>
-          <div class="ticket">
-            <b>Upload material count photo</b>
-            <p class="muted">Staff Gudang B &nbsp;·&nbsp; Waiting approval</p>
-          </div>
-          <div class="ticket">
-            <b>QC hasil packing</b>
-            <p class="muted">Supervisor Review</p>
-          </div>
+          <div class="ticket"><b>Upload material count photo</b><p class="muted">Staff Gudang B · Waiting</p></div>
+          <div class="ticket"><b>QC hasil packing</b><p class="muted">Supervisor Review</p></div>
         </div>
         <div class="lane">
           <h3>Approved</h3>
-          <div class="ticket">
-            <b>Packaging check</b>
-            <p class="muted">Approved by Supervisor</p>
-          </div>
-          <div class="ticket">
-            <b>Foto stok kurang jelas</b>
-            <p class="muted">Revision requested</p>
-          </div>
+          <div class="ticket"><b>Packaging check</b><p class="muted">Approved by Supervisor</p></div>
+          <div class="ticket"><b>Foto stok kurang jelas</b><p class="muted">Revision requested</p></div>
         </div>
       </div>
     </div>
@@ -196,12 +172,12 @@
         <div class="eyebrow">Proof of Work</div>
         <h2>Staff wajib upload bukti</h2>
         <div class="photo">PHOTO / FILE PROOF</div>
-        <p style="font-size:13.5px"><b style="color:#fff;font-weight:600">Material Count Proof</b><br>
-        <span class="muted">Submitted by Staff Gudang B &nbsp;·&nbsp; 14:35 &nbsp;·&nbsp; Gudang Bahan Baku &nbsp;·&nbsp; TASK-00045</span></p>
-        <table style="margin-top:16px">
+        <p style="font-size:13px"><b style="color:var(--t1);font-weight:600">Material Count Proof</b><br>
+        <span class="muted">Staff Gudang B &nbsp;·&nbsp; 14:35 &nbsp;·&nbsp; Gudang Bahan Baku &nbsp;·&nbsp; TASK-00045</span></p>
+        <table style="margin-top:14px">
           <tbody>
-            <tr><td>Catatan Staff</td><td>PP 7 KG ready, aluminum pole 35 pcs ready, box kurang 5 pcs.</td></tr>
-            <tr><td>Status</td><td><span class="badge amber">Waiting Supervisor Review</span></td></tr>
+            <tr><td style="color:var(--t3);width:110px">Catatan Staff</td><td>PP 7 KG ready, aluminum pole 35 pcs, box kurang 5 pcs.</td></tr>
+            <tr><td style="color:var(--t3)">Status</td><td><span class="badge amber">Waiting Review</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -210,16 +186,15 @@
         <h2>Approve atau minta revisi</h2>
         <table>
           <tbody>
-            <tr><td>Checklist Foto</td><td><span class="badge green">Clear</span></td></tr>
-            <tr><td>Jumlah Sesuai BOM</td><td><span class="badge amber">Box kurang 5</span></td></tr>
-            <tr><td>Decision</td><td><span class="badge red">Request Revision</span></td></tr>
-            <tr><td>Review Note</td><td>Lengkapi packaging box dulu, lalu upload ulang foto final.</td></tr>
+            <tr><td style="color:var(--t3);width:130px">Checklist Foto</td><td><span class="badge green">Clear</span></td></tr>
+            <tr><td style="color:var(--t3)">Jumlah Sesuai BOM</td><td><span class="badge amber">Box kurang 5</span></td></tr>
+            <tr><td style="color:var(--t3)">Decision</td><td><span class="badge red">Request Revision</span></td></tr>
+            <tr><td style="color:var(--t3)">Review Note</td><td>Lengkapi packaging box dulu, lalu upload ulang foto final.</td></tr>
           </tbody>
         </table>
-        <div class="toolbar" style="margin-top:20px">
+        <div class="toolbar" style="margin-top:16px">
           <span class="btn">Approve Proof</span>
           <span class="btn gray">Request Revision</span>
-          <span class="btn gray">Comment</span>
         </div>
       </div>
     </div>
@@ -241,11 +216,9 @@
       <div class="section">
         <div class="eyebrow">Supporting Module</div>
         <h2>Stock sebagai pendukung tugas</h2>
-        <p>Stok tetap ada, tapi alurnya dikaitkan ke task. Task produksi mengambil bahan baku, lalu bukti kerja menjadi validasi sebelum produksi dikonfirmasi.</p>
-        <table style="margin-top:18px">
-          <thead>
-            <tr><th>Item</th><th>On Hand</th><th>Reserved</th><th>Available</th></tr>
-          </thead>
+        <p>Stok dikaitkan ke task — task produksi mengambil bahan baku, dan bukti kerja menjadi validasi sebelum produksi dikonfirmasi.</p>
+        <table style="margin-top:16px">
+          <thead><tr><th>Item</th><th>On Hand</th><th>Reserved</th><th>Available</th></tr></thead>
           <tbody>
             <tr><td>Plastic Granule PP</td><td>250 KG</td><td>18.5 KG</td><td>231.5 KG</td></tr>
             <tr><td>Aluminum Pole</td><td>300 PCS</td><td>35 PCS</td><td>265 PCS</td></tr>
@@ -256,15 +229,15 @@
       <div class="section" id="production">
         <div class="eyebrow">Production Link</div>
         <h2>Produksi dikontrol lewat task</h2>
-        <div class="ticket" style="margin-bottom:12px">
+        <div class="ticket" style="margin-bottom:10px">
           <b>PB-00012 — Mop Handle Set</b>
-          <p class="muted">Linked to SO-00031. Material task: in progress. Output tidak bisa dikonfirmasi sebelum proof diapprove.</p>
-          <span class="badge amber" style="margin-top:10px">Blocked by Proof Review</span>
+          <p class="muted">Linked SO-00031 · Material task in progress · Tidak bisa dikonfirmasi sebelum proof diapprove.</p>
+          <span class="badge amber" style="margin-top:8px;display:inline-flex">Blocked by Proof Review</span>
         </div>
         <div class="ticket">
           <b>PB-00013 — Floor Squeegee</b>
-          <p class="muted">Task assigned to Staff Produksi C. Deadline tomorrow 10:00.</p>
-          <span class="badge blue" style="margin-top:10px">Task Assigned</span>
+          <p class="muted">Task assigned to Staff Produksi C · Deadline tomorrow 10:00</p>
+          <span class="badge blue" style="margin-top:8px;display:inline-flex">Task Assigned</span>
         </div>
       </div>
     </div>
@@ -276,7 +249,7 @@
         <h2>Riwayat setiap tindakan</h2>
         <table>
           <tbody>
-            <tr><td style="color:var(--t3);white-space:nowrap;width:52px">09:12</td><td>Manager created TASK-00045 for PB-00012</td></tr>
+            <tr><td style="color:var(--t3);white-space:nowrap;width:48px">09:12</td><td>Manager created TASK-00045 for PB-00012</td></tr>
             <tr><td style="color:var(--t3)">09:15</td><td>Supervisor assigned task to Staff Gudang B</td></tr>
             <tr><td style="color:var(--t3)">10:04</td><td>Staff updated progress to 50%</td></tr>
             <tr><td style="color:var(--t3)">14:35</td><td>Staff uploaded material count proof</td></tr>
@@ -287,8 +260,8 @@
       <div class="section" id="report">
         <div class="eyebrow">Owner Reports</div>
         <h2>Laporan fokus kontrol kerja</h2>
-        <p>Owner bisa lihat task overdue, staff performance, proof waiting, task per department, produksi terhambat, dan stok yang menghambat task.</p>
-        <div class="toolbar" style="margin-top:22px">
+        <p>Task overdue, staff performance, proof waiting, task per department, produksi terhambat, dan stok yang menghambat task.</p>
+        <div class="toolbar" style="margin-top:18px">
           <span class="btn">Task Summary</span>
           <span class="btn gray">Proof Report</span>
           <span class="btn gray">Production Blocker</span>
