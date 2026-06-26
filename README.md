@@ -1,6 +1,11 @@
-# Youngpro Cleaning Tools Backend Pack
+# Youngpro Cleaning Tools Operations System
 
-Backend logic and system architecture for an internal web app covering:
+Internal web app foundation for Youngpro Cleaning Tools. This repository now contains both:
+
+1. a clickable Next.js frontend demo, and
+2. Supabase/PostgreSQL backend architecture, schema, RPC functions, RLS, reports, and seed data.
+
+The system covers:
 
 - Product Catalog
 - Sales Order / Order Draft
@@ -15,36 +20,67 @@ Backend logic and system architecture for an internal web app covering:
 - Settings
 - Activity Logs
 
-This pack is intentionally **not** a marketplace, full ERP, accounting system, payroll system, payment gateway, mobile app, or delivery route system.
+This system is intentionally **not** a marketplace, full ERP, accounting system, payroll system, payment gateway, native mobile app, or delivery route system.
+
+## Frontend Demo
+
+The frontend is a Next.js app with a polished mock-data demo for client presentation.
+
+Run locally:
+
+```bash
+npm install
+npm run dev
+```
+
+Build:
+
+```bash
+npm run build
+```
+
+Environment variables:
+
+```bash
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+```
+
+If Supabase variables are not configured yet, the frontend still renders using mock data.
 
 ## Folder Structure
 
 ```txt
-youngpro_backend_pack/
-├── README.md
-├── docs/
-│   ├── backend_architecture.md
-│   ├── business_rules.md
-│   ├── api_direction.md
-│   ├── status_transitions.md
-│   └── implementation_checklist.md
-├── supabase/
-│   ├── migrations/
-│   │   ├── 001_schema.sql
-│   │   ├── 002_functions_and_triggers.sql
-│   │   ├── 003_rls_policies.sql
-│   │   └── 004_report_views.sql
-│   └── seed.sql
-└── src/
-    └── backend/
-        ├── api-services.ts
-        ├── constants.ts
-        └── types.ts
+app/
+├── globals.css
+├── layout.tsx
+└── page.tsx
+src/
+├── backend/
+│   ├── api-services.ts
+│   ├── constants.ts
+│   └── types.ts
+└── lib/
+    ├── mock-data.ts
+    └── supabase.ts
+docs/
+├── backend_architecture.md
+├── business_rules.md
+├── api_direction.md
+├── status_transitions.md
+└── implementation_checklist.md
+supabase/
+├── migrations/
+│   ├── 001_schema.sql
+│   ├── 002_functions_and_triggers.sql
+│   ├── 003_rls_policies.sql
+│   └── 004_report_views.sql
+└── seed.sql
 ```
 
-## Install Order
+## Supabase Install Order
 
-Run these files in this order inside Supabase SQL Editor or Supabase CLI migration flow:
+Run these files in order inside Supabase SQL Editor or Supabase CLI migration flow:
 
 1. `supabase/migrations/001_schema.sql`
 2. `supabase/migrations/002_functions_and_triggers.sql`
@@ -98,6 +134,17 @@ Storage policies should allow:
 - supervisor/admin to view/review all proof,
 - no public anonymous access.
 
-## Frontend Direction
+## Demo Flow
 
-Use `src/backend/api-services.ts` as the first frontend API layer. Claude Code or another frontend builder can wire the screens directly to these service functions.
+Use this order when showing the client:
+
+1. Dashboard: open orders, production, tasks, low stock.
+2. Product Catalog: products and BOM.
+3. Sales Order: order exceeds finished goods stock.
+4. Stock Check: shortage appears.
+5. Production Batch: batch generated from shortage.
+6. Task Delegation: staff task and proof submission.
+7. Supervisor Review: approve/reject proof.
+8. Production Confirmation: raw material deducted, finished goods increased.
+9. Fulfillment: reserved finished goods deducted.
+10. Reports: stock movement and operational trace.
